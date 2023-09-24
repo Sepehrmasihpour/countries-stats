@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/nunito-sans": "^5.0.9",
+    "@fontsource/nunito-sans": "^5.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.67.0",
