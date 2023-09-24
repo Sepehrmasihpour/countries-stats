@@ -12,7 +12,9 @@ function App() {
 
   return (
     <>
-      <Header darkMode={darkMode} darkModeToggle={darkModeToggle} />
+      <div className={darkMode ? "dark-container" : "container"}>
+        <Header darkMode={darkMode} darkModeToggle={darkModeToggle} />
+      </div>
     </>
   );
 }

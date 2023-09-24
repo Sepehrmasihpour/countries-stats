@@ -1,8 +1,7 @@
 import "@fontsource/nunito-sans";
 import "../styles/Header.scss";
+import moon from "../assets//moon-sharp.svg";
 import moonOutline from "../assets/moon-outline.svg";
-import moon from "../assets/moon-sharp.svg";
-
 interface HeaderProps {
   darkMode: boolean;
   darkModeToggle: () => void;
@@ -10,7 +9,7 @@ interface HeaderProps {
 
 function Header(props: HeaderProps) {
   return (
-    <div className="header">
+    <div className={props.darkMode ? "header-darkMode" : "header"}>
       <p>Where in the world?</p>
       <div onClick={props.darkModeToggle} className="darkmode-toggle">
         <img src={props.darkMode ? moon : moonOutline} alt="moon" />

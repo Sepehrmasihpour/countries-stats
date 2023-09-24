@@ -1,0 +1,30 @@
+$dark-mode-elements: hsl(209, 23%, 22%);
+$dark-mode-background: hsl(207, 26%, 17%);
+$light-mode-input: hsl(0, 0%, 52%);
+$light-mode-background: hsl(0, 0%, 98%);
+$dark-mode-text: hsl(0, 0%, 100%);
+$light-mode-elements: hsl(0, 0%, 100%);
+
+@mixin flex(
+  $flex-direction: row,
+  $justify-content: safe,
+  $alighn-items: normal
+) {
+  display: flex;
+  align-items: $alighn-items;
+  justify-content: $justify-content;
+  flex-direction: $flex-direction;
+}
+@mixin position(
+  $position: relative,
+  $top: auto,
+  $bottom: auto,
+  $left: auto,
+  $rigt: auto
+) {
+  position: $position;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right: $rigt;
+}

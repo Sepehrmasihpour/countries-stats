@@ -1,17 +1,29 @@
+@use "modules";
+
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  @include modules.position(fixed, 0, auto, 0, 0);
+  @include modules.flex(row, space-between, center);
   font-weight: 800;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 0 10px;
+  font-size: 22px;
+  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3);
+  padding: 0 35px;
+  height: 65px;
+  .darkmode-toggle {
+    @include modules.flex(row, safe, center);
+    column-gap: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    img {
+      width: 17px;
+    }
+  }
 }
-.darkmode-toggle {
-  display: flex;
-  align-items: center;
+.header-darkMode {
+  @extend .header;
+  color: modules.$dark-mode-text;
+  background-color: modules.$dark-mode-elements;
   img {
-    width: 20px;
+    filter: invert(100%);
   }
 }
