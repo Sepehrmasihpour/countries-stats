@@ -1,30 +1,33 @@
-$dark-mode-elements: hsl(209, 23%, 22%);
-$dark-mode-background: hsl(207, 26%, 17%);
-$light-mode-input: hsl(0, 0%, 52%);
-$light-mode-background: hsl(0, 0%, 98%);
-$dark-mode-text: hsl(0, 0%, 100%);
-$light-mode-elements: hsl(0, 0%, 100%);
+$dark-mode-elements: hsl(209, 23%, 22%); // Dark mode elements color
+$dark-mode-background: hsl(207, 26%, 17%); // Dark mode background color
+$light-mode-input: hsl(0, 0%, 52%); // Light mode input color
+$light-mode-background: hsl(0, 0%, 98%); // Light mode background color
+$dark-mode-text: hsl(0, 0%, 100%); // Dark mode text color
+$light-mode-elements: hsl(0, 0%, 100%); // Light mode elements color
 
+// Mixin for flexbox styles
 @mixin flex(
   $flex-direction: row,
   $justify-content: safe,
-  $alighn-items: normal
+  $align-items: normal
 ) {
   display: flex;
-  align-items: $alighn-items;
+  align-items: $align-items;
   justify-content: $justify-content;
   flex-direction: $flex-direction;
 }
+
+// Mixin for positioning styles
 @mixin position(
   $position: relative,
   $top: auto,
   $bottom: auto,
   $left: auto,
-  $rigt: auto
+  $right: auto
 ) {
   position: $position;
   top: $top;
   bottom: $bottom;
   left: $left;
-  right: $rigt;
+  right: $right;
 }
