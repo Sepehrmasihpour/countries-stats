@@ -18,6 +18,8 @@
   box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3); // Add box shadow to the header
   padding: 0 35px; // Add padding to the header
   height: 65px; // Set height to 65px
+  background-color: white;
+  z-index: 1000;
 
   .darkmode-toggle {
     @include modules.flex(
@@ -28,10 +30,9 @@
     column-gap: 10px; // Set column gap to 10px
     font-weight: 600; // Set font weight to 600
     font-size: 15px; // Set font size to 15px
-    cursor: pointer; // Set cursor to pointer
-
     img {
       width: 17px; // Set width of the image to 17px
+      cursor: pointer; // Set cursor to pointer
     }
   }
 }
