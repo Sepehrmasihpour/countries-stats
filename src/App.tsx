@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Top from "./components/Top/Top";
 import Middle from "./components/Middle/Middle";
 import Bottom from "./components/Bottom/Bottom";
-import "./styles/App.scss";
+import "./components/styles/App.scss";
 import "@fontsource-variable/nunito-sans";
 
 function App() {
