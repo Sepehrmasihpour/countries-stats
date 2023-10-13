@@ -1,4 +1,4 @@
-import "../styles/Top.scss";
+import "./Top.scss";
 
 function Top(props) {
   return <div className="top"></div>;
