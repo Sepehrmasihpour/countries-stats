@@ -1,0 +1,29 @@
+@use "general";
+
+header {
+  height: 40px;
+  padding: 0 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    width: 20px;
+  }
+}
+.dark-mode-toggle {
+  display: flex;
+  column-gap: 7px;
+  p {
+    margin: 0;
+  }
+}

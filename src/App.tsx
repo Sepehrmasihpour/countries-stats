@@ -27,7 +27,7 @@ function App() {
   return (
     <div className={darkMode ? "dark-app" : "app"}>
       <div className="container">
-        <Header darkModeToggle={darkModeToggle} />
+        <Header darkMode={darkMode} darkModeToggle={darkModeToggle} />
         <Top
           backToggle={updateChosenCountry}
           updateSearch={updateSearch}
