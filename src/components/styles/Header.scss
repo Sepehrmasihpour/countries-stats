@@ -1,12 +1,26 @@
 @use "general";
 
 header {
-  height: 40px;
+  height: 70px;
   padding: 0 70px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3);
+  background-color: general.$light-mode-elements;
+}
+#dark-header {
+  @extend header;
+  background-color: general.$dark-mode-elements;
+  .dark-mode-toggle {
+    img {
+      filter: invert(100);
+    }
+  }
 }
 .header-container {
   display: flex;
@@ -23,6 +37,7 @@ header {
 .dark-mode-toggle {
   display: flex;
   column-gap: 7px;
+  cursor: pointer;
   p {
     margin: 0;
   }
