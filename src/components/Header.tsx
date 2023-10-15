@@ -10,7 +10,7 @@ function Header(props: headerProps) {
   return (
     <header id={props.darkMode ? "dark-header" : "light-header"}>
       <div className="header-container">
-        <h1>where in the world</h1>
+        <p id="logo">Where in the world</p>
         <div className="dark-mode-toggle">
           <img
             src={props.darkMode ? lightMoon : darkMoon}

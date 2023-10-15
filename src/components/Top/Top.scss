@@ -1,0 +1,35 @@
+@use "../styles/general.scss";
+
+.top {
+  margin-top: 70px;
+  padding: 50px 0;
+}
+.back-button {
+  @include general.elements-shadow;
+  background-color: general.$light-mode-elements;
+  width: 90px;
+  padding: 10px 25px;
+  border-radius: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 12px;
+  cursor: pointer;
+  img {
+    width: 20px;
+  }
+  p {
+    margin: 0;
+    font-weight: 300;
+  }
+}
+.back-button:hover {
+  filter: opacity(0.8);
+}
+.dark-back-button {
+  @extend .back-button;
+  background-color: general.$dark-mode-elements;
+  img {
+    filter: brightness(100) invert(1);
+  }
+}

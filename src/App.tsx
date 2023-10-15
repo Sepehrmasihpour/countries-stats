@@ -1,6 +1,6 @@
 // Importing dependencies
 import Data from "./assets/data/data.json";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import useFilterData from "./hooks/useFilterData";
 import Header from "./components/Header";
 import Top from "./components/Top/Top";
@@ -16,6 +16,13 @@ function App() {
 
   // the data that will be rendered and cpassed to the components
   const renderedData = useFilterData(Data, chosenCountry, region, searchValue);
+  const userIsChoosing = useMemo(() => {
+    if (chosenCountry) {
+      return false;
+    } else {
+      return true;
+    }
+  }, [chosenCountry]);
 
   // Handlers for various state updates
   const darkModeToggle = () => setDarkMode(!darkMode);
@@ -29,10 +36,12 @@ function App() {
       <div className="container">
         <Header darkMode={darkMode} darkModeToggle={darkModeToggle} />
         <Top
+          darkMode={darkMode}
           backToggle={updateChosenCountry}
           updateSearch={updateSearch}
           changeRegion={updateRegion}
           searchValue={searchValue}
+          userIsChoosing={userIsChoosing}
           region={region}
         />
         <Middle

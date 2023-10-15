@@ -11,3 +11,7 @@ $light-mode-input: hsl(0, 0%, 52%);
   height: 100%;
   width: 100%;
 }
+
+@mixin elements-shadow {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+}
