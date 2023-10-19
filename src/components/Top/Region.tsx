@@ -2,7 +2,8 @@ import "./Top.scss";
 
 interface RegionProps {
   region: string | null;
-  changeRegion: (region: string | null) => void;
+  changeRegion: (region: string) => void;
+  darkMode: boolean;
 }
 
 function Region(props: RegionProps) {

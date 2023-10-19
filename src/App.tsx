@@ -10,14 +10,14 @@ import "@fontsource-variable/nunito-sans";
 
 function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
-  const [searchValue, setSearch] = useState<string | null>(null);
+  const [searchValue, setSearch] = useState<string>("");
   const [chosenCountry, setChosenCountry] = useState<null | any[]>(null);
-  const [region, setRegion] = useState<string | null>(null);
+  const [region, setRegion] = useState<string>("");
 
   // the data that will be rendered and cpassed to the components
   const renderedData = useFilterData(Data, chosenCountry, region, searchValue);
   const userIsChoosing = useMemo(() => {
-    if (chosenCountry) {
+    if (chosenCountry !== null) {
       return false;
     } else {
       return true;
@@ -26,8 +26,8 @@ function App() {
 
   // Handlers for various state updates
   const darkModeToggle = () => setDarkMode(!darkMode);
-  const updateSearch = (value: string | null) => setSearch(value);
-  const updateRegion = (region: string | null) => setRegion(region);
+  const updateSearch = (value: string) => setSearch(value);
+  const updateRegion = (region: string) => setRegion(region);
   const updateChosenCountry = (chosenCountry: null | any[]) =>
     setChosenCountry(chosenCountry);
 

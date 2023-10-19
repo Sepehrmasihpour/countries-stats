@@ -3,19 +3,19 @@ import { useMemo } from "react";
 const useFilterData = (
   data: any[],
   chosenCountry: any[] | null,
-  region: string | null,
-  searchValue: string | null
+  region: string,
+  searchValue: string
 ) => {
   const filteredData = useMemo(() => {
     let newData = data;
 
-    if (searchValue) {
+    if (searchValue !== "") {
       newData = newData.filter((item) =>
         item.name.toLowerCase().includes(searchValue.toLowerCase())
       );
     }
 
-    if (region) {
+    if (region !== "") {
       newData = newData.filter((item) =>
         item.region.toLowerCase().includes(region.toLowerCase())
       );

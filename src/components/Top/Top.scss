@@ -33,3 +33,30 @@
     filter: brightness(100) invert(1);
   }
 }
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.search-bar {
+  @include general.elements-shadow;
+  color: general.$light-mode-input;
+  display: flex;
+  input {
+    background-color: general.$light-mode-elements;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    width: 350px;
+  }
+  img {
+    width: 20px;
+  }
+}
+
+.Region {
+  width: 30px;
+  height: 30px;
+  background-color: aqua;
+}

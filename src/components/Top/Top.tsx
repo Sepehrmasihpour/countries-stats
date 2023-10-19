@@ -6,28 +6,37 @@ import "./Top.scss";
 interface TopProps {
   //because the backToggle only has the job of going back to the main page the value is null
   backToggle: (country: null) => void;
-  updateSearch: (value: string | null) => void;
-  changeRegion: (region: string | null) => void;
+  updateSearch: (value: string) => void;
+  changeRegion: (region: string) => void;
   userIsChoosing: boolean;
-  searchValue: string | null;
-  region: string | null;
   darkMode: boolean;
+  searchValue: string;
+  region: string;
 }
 
 function Top(props: TopProps) {
+  const searchEventHandler = (value) => {
+    const searchValue = value.target.value;
+    props.updateSearch(searchValue);
+  };
   return (
     <div className="top">
       {props.userIsChoosing ? (
-        <>
-          <Back backToggle={props.backToggle} darkMode={props.darkMode} />
-        </>
-      ) : (
-        <>
+        <div className="filter-section">
           <Search
             searchValue={props.searchValue}
-            updateSearch={props.updateSearch}
+            updateSearch={searchEventHandler}
+            darkMode={props.darkMode}
           />
-          <Region region={props.region} changeRegion={props.changeRegion} />
+          <Region
+            region={props.region}
+            changeRegion={props.changeRegion}
+            darkMode={props.darkMode}
+          />
+        </div>
+      ) : (
+        <>
+          <Back backToggle={props.backToggle} darkMode={props.darkMode} />
         </>
       )}
     </div>
