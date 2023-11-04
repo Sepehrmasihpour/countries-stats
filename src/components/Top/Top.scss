@@ -60,6 +60,9 @@
     height: 45px;
     width: 350px;
   }
+  input:focus{
+    outline: none;
+  }
   img {
     width: 20px;
   }
@@ -71,9 +74,13 @@
   background-color: general.$dark-mode-elements;
   .img-container {
     background-color: general.$dark-mode-elements;
+    img{
+      filter: brightness(0) invert(1);
+    }
   }
   input {
     background-color: general.$dark-mode-elements;
+    color : general.$dark-mode-input
   }
 }
 
