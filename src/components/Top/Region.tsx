@@ -7,7 +7,7 @@ interface RegionProps {
 }
 
 function Region(props: RegionProps) {
-  return <div className="Region"></div>;
+  return <div className={[props.darkMode?"Region":"dark-Region"]}></div>;
 }
 
 export default Region;
