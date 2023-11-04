@@ -18,7 +18,7 @@ header {
   background-color: general.$dark-mode-elements;
   .dark-mode-toggle {
     img {
-      filter: brightness(0) invert(1);
+      @include general.white-image
     }
   }
 }

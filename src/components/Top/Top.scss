@@ -30,7 +30,7 @@
   @extend .back-button;
   background-color: general.$dark-mode-elements;
   img {
-    filter: brightness(100) invert(1);
+    @include general.white-image
   }
 }
 .filter-section {
