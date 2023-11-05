@@ -1,9 +1,22 @@
 @use "../styles/general.scss";
 
+// TODO make this component responsive . by flex display and stacking the search and region component on top of each other
+
+// * General styles for the Top component
+
 .top {
   margin-top: 70px;
   padding: 50px 0;
 }
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+// * The styles for Back component
+
 .back-button {
   @include general.elements-shadow;
   background-color: general.$light-mode-elements;
@@ -30,20 +43,18 @@
   @extend .back-button;
   background-color: general.$dark-mode-elements;
   img {
-    @include general.white-image
+    @include general.white-image;
   }
 }
-.filter-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-}
+
+// *The styles for the Search component
 
 .search-bar {
+  @include general.elements-shadow;
   color: general.$light-mode-input;
   background-color: general.$light-mode-elements;
   display: flex;
-  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.5);
+  border-radius: 6px;
   .img-container {
     background-color: general.$light-mode-elements;
     display: flex;
@@ -60,7 +71,7 @@
     height: 45px;
     width: 350px;
   }
-  input:focus{
+  input:focus {
     outline: none;
   }
   img {
@@ -74,18 +85,87 @@
   background-color: general.$dark-mode-elements;
   .img-container {
     background-color: general.$dark-mode-elements;
-    img{
+    img {
       filter: brightness(0) invert(1);
     }
   }
   input {
     background-color: general.$dark-mode-elements;
-    color : general.$dark-mode-input
+    color: general.$dark-mode-input;
   }
 }
 
+// *The styles for the Region component
+
 .Region {
-  width: 30px;
-  height: 30px;
-  background-color: aqua;
+  @include general.elements-shadow;
+  background-color: general.$light-mode-elements;
+  color: general.$light-mode-text;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  height: 45px;
+  width: 170px;
+  flex-direction: column;
+  border-radius: 5px;
+  .region-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    font-weight: 300;
+    p {
+      margin: 0;
+    }
+    img {
+      width: 16px;
+    }
+  }
+  .region-list {
+    background-color: general.$light-mode-elements;
+    color: general.$light-mode-text;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 110%;
+    width: 100%;
+    row-gap: 10px;
+    border-radius: 5px;
+    .regions {
+      padding: 10px 20px;
+      display: grid;
+      row-gap: 5px;
+      p {
+        margin: 0;
+      }
+      p:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+      #chosen-country {
+        opacity: 0.3;
+      }
+    }
+  }
+}
+
+.dark-Region {
+  @extend .Region;
+  background-color: general.$dark-mode-elements;
+  color: general.$dark-mode-text;
+  .region-button {
+    img {
+      @include general.white-image;
+    }
+  }
+  .region-list {
+    background-color: general.$dark-mode-elements;
+    color: general.$dark-mode-text;
+  }
 }

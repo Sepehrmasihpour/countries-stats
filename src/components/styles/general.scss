@@ -13,8 +13,8 @@ $light-mode-input: hsl(0, 0%, 52%);
 }
 
 @mixin elements-shadow {
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
 }
-@mixin white-image{
+@mixin white-image {
   filter: brightness(100) invert(1);
 }

@@ -9,8 +9,7 @@ interface RegionProps {
 }
 
 function Region(props: RegionProps) {
-  const [showRegions, setShowRegions] = useState(false);
-  const [chosenRegion, setChosenRegion] = useState<string | null>(null);
+  const [showRegions, setShowRegions] = useState(true);
 
   const detirmineChosenRegion = (
     chosenRegion: string | null,
@@ -28,9 +27,9 @@ function Region(props: RegionProps) {
   };
 
   return (
-    <div className={props.darkMode ? "Region" : "dark-Region"}>
+    <div className={props.darkMode ? "dark-Region" : "Region"}>
       <div
-        className="filter-button"
+        className="region-button"
         onClick={() => setShowRegions(!showRegions)}
       >
         <p>Filter by Region</p>
@@ -42,61 +41,63 @@ function Region(props: RegionProps) {
       </div>
       {showRegions && (
         <div className="region-list">
-          <p
-            id={
-              detirmineChosenRegion(chosenRegion, "america")
-                ? "chosen-country"
-                : "normal-country"
-            }
-            className="america"
-            onClick={() => setChosenRegion("america")}
-          >
-            America
-          </p>
-          <p
-            id={
-              detirmineChosenRegion(chosenRegion, "africa")
-                ? "chosen-country"
-                : "normal-country"
-            }
-            className="africa"
-            onClick={() => setChosenRegion("africa")}
-          >
-            Africa
-          </p>
-          <p
-            id={
-              detirmineChosenRegion(chosenRegion, "asia")
-                ? "chosen-country"
-                : "normal-country"
-            }
-            className="asia"
-            onClick={() => setChosenRegion("asia")}
-          >
-            Asia
-          </p>
-          <p
-            id={
-              detirmineChosenRegion(chosenRegion, "europe")
-                ? "chosen-country"
-                : "normal-country"
-            }
-            className="europe"
-            onClick={() => setChosenRegion("europe")}
-          >
-            Europe
-          </p>
-          <p
-            id={
-              detirmineChosenRegion(chosenRegion, "ocenia")
-                ? "chosen-country"
-                : "normal-country"
-            }
-            className="ocenia"
-            onClick={() => setChosenRegion("ocenia")}
-          >
-            Ocenia
-          </p>
+          <div className="regions">
+            <p
+              id={
+                detirmineChosenRegion(props.region, "america")
+                  ? "chosen-country"
+                  : "normal-country"
+              }
+              className="america"
+              onClick={() => props.changeRegion("america")}
+            >
+              America
+            </p>
+            <p
+              id={
+                detirmineChosenRegion(props.region, "africa")
+                  ? "chosen-country"
+                  : "normal-country"
+              }
+              className="africa"
+              onClick={() => props.changeRegion("africa")}
+            >
+              Africa
+            </p>
+            <p
+              id={
+                detirmineChosenRegion(props.region, "asia")
+                  ? "chosen-country"
+                  : "normal-country"
+              }
+              className="asia"
+              onClick={() => props.changeRegion("asia")}
+            >
+              Asia
+            </p>
+            <p
+              id={
+                detirmineChosenRegion(props.region, "europe")
+                  ? "chosen-country"
+                  : "normal-country"
+              }
+              className="europe"
+              onClick={() => props.changeRegion("europe")}
+            >
+              Europe
+            </p>
+            <p
+              id={
+                detirmineChosenRegion(props.region, "ocenia")
+                  ? "chosen-country"
+                  : "normal-country"
+              }
+              className="ocenia"
+              onClick={() => props.changeRegion("ocenia")}
+            >
+              Ocenia
+            </p>
+          </div>
         </div>
       )}
     </div>
