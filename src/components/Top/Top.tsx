@@ -14,6 +14,8 @@ interface TopProps {
   region: string;
 }
 
+// TODO : find the correct type for the searchEventHandler pram and secure its type
+
 function Top(props: TopProps) {
   const searchEventHandler = (value) => {
     const searchValue = value.target.value;
