@@ -2,9 +2,10 @@ import Country from "./Country";
 import "./Middle.scss";
 
 interface MiddleProps {
-  updateChosenCountry: (chosenCountry: null | any[]) => void;
+  updateChosenCountry: (chosenCountry: {}) => void;
   data: any[];
-  chosenCountry: any[] | null;
+  chosenCountry: any | null;
+  userIsChoosing: boolean;
 }
 
 function Middle(props: MiddleProps) {
@@ -13,6 +14,8 @@ function Middle(props: MiddleProps) {
     name: countryData.name,
     capital: countryData.capital,
     population: countryData.population,
+    alpha2Code: "AF",
+
     region: countryData.region,
     topLevelDomain: countryData.topLevelDomain,
     nativeName: countryData.nativeName,
@@ -24,14 +27,22 @@ function Middle(props: MiddleProps) {
 
   return (
     <>
-      {!props.chosenCountry ? (
+      {props.userIsChoosing ? (
         <div className="Middle">
           {props.data.map((countryData) => (
-            <Country key={countryData.name} {...getCountryProps(countryData)} />
+            <Country
+              key={countryData.name}
+              {...getCountryProps(countryData)}
+              updateChosenCountry={props.updateChosenCountry}
+              userIsChoosing={props.userIsChoosing}
+            />
           ))}
         </div>
       ) : (
-        <Country {...getCountryProps(props.chosenCountry)} />
+        <Country
+          {...getCountryProps(props.chosenCountry)}
+          userIsChoosing={props.userIsChoosing}
+        />
       )}
     </>
   );

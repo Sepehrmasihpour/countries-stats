@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 const useFilterData = (
   data: any[],
-  chosenCountry: any[] | null,
+  chosenCountry: {} | null,
   region: string,
   searchValue: string
 ) => {

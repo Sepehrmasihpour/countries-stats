@@ -11,7 +11,7 @@ import "@fontsource-variable/nunito-sans";
 function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [searchValue, setSearch] = useState<string>("");
-  const [chosenCountry, setChosenCountry] = useState<null | any[]>(null);
+  const [chosenCountry, setChosenCountry] = useState<null | {}>(null);
   const [region, setRegion] = useState<string>("");
 
   // the data that will be rendered and cpassed to the components
@@ -28,7 +28,7 @@ function App() {
   const darkModeToggle = () => setDarkMode(!darkMode);
   const updateSearch = (value: string) => setSearch(value);
   const updateRegion = (region: string) => setRegion(region);
-  const updateChosenCountry = (chosenCountry: null | any[]) =>
+  const updateChosenCountry = (chosenCountry: null | {}) =>
     setChosenCountry(chosenCountry);
 
   return (
@@ -48,6 +48,7 @@ function App() {
           data={renderedData}
           updateChosenCountry={updateChosenCountry}
           chosenCountry={chosenCountry}
+          userIsChoosing={userIsChoosing}
         />
       </div>
     </div>
