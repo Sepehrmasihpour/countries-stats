@@ -17,7 +17,7 @@ interface TopProps {
 // TODO : find the correct type for the searchEventHandler pram and secure its type
 
 function Top(props: TopProps) {
-  const searchEventHandler = (value) => {
+  const searchEventHandler = (value: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = value.target.value;
     props.updateSearch(searchValue);
   };

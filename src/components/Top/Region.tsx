@@ -1,102 +1,78 @@
-import { useState } from "react";
+// Importing necessary hooks from React
+import { useState, useCallback } from "react";
+
+// Importing an arrow image for the region dropdown
 import arrow from "./assets/chevron-down-outline.svg";
+
+// Importing the stylesheet for the component
 import "./Top.scss";
 
+// Defining the props for the Region component
 interface RegionProps {
-  region: string | null;
-  changeRegion: (region: string) => void;
-  darkMode: boolean;
+  region: string | null; // The currently selected region
+  changeRegion: (region: string) => void; // Function to change the selected region
+  darkMode: boolean; // Flag to indicate whether dark mode is enabled
 }
 
+// Defining the Region component
 function Region(props: RegionProps) {
+  // State to control the visibility of the region dropdown
   const [showRegions, setShowRegions] = useState(false);
 
-  const detirmineChosenRegion = (
+  // Array of regions
+  const regions = ["america", "africa", "asia", "europe", "ocenia"];
+
+  // Function to determine if a region is the currently chosen one
+  const determineChosenRegion = (
     chosenRegion: string | null,
     regionClass: string
   ) => {
-    if (!chosenRegion) {
-      return false;
-    } else {
-      if (chosenRegion === regionClass) {
-        return true;
-      } else {
-        return false;
-      }
-    }
+    return chosenRegion === regionClass;
   };
 
+  // Function to handle region click events
+  const handleRegionClick = useCallback(
+    (region: string) => {
+      props.changeRegion(region);
+    },
+    [props.changeRegion]
+  );
+
+  // Rendering the Region component
   return (
     <div className={props.darkMode ? "dark-Region" : "Region"}>
+      {/* Region button to toggle the visibility of the region dropdown */}
       <div
         className="region-button"
         onClick={() => setShowRegions(!showRegions)}
       >
         <p>Filter by Region</p>
+        {/* Arrow image indicating the dropdown state */}
         <img
           className={showRegions ? "down-arrow" : "up-arrow"}
           src={arrow}
           alt="region arrow"
         />
       </div>
+      {/* Region dropdown */}
       {showRegions && (
         <div className="region-list">
           <div className="regions">
-            <p
-              id={
-                detirmineChosenRegion(props.region, "america")
-                  ? "chosen-country"
-                  : "normal-country"
-              }
-              className="america"
-              onClick={() => props.changeRegion("america")}
-            >
-              America
-            </p>
-            <p
-              id={
-                detirmineChosenRegion(props.region, "africa")
-                  ? "chosen-country"
-                  : "normal-country"
-              }
-              className="africa"
-              onClick={() => props.changeRegion("africa")}
-            >
-              Africa
-            </p>
-            <p
-              id={
-                detirmineChosenRegion(props.region, "asia")
-                  ? "chosen-country"
-                  : "normal-country"
-              }
-              className="asia"
-              onClick={() => props.changeRegion("asia")}
-            >
-              Asia
-            </p>
-            <p
-              id={
-                detirmineChosenRegion(props.region, "europe")
-                  ? "chosen-country"
-                  : "normal-country"
-              }
-              className="europe"
-              onClick={() => props.changeRegion("europe")}
-            >
-              Europe
-            </p>
-            <p
-              id={
-                detirmineChosenRegion(props.region, "ocenia")
-                  ? "chosen-country"
-                  : "normal-country"
-              }
-              className="ocenia"
-              onClick={() => props.changeRegion("ocenia")}
-            >
-              Ocenia
-            </p>
+            {/* Mapping over the regions array to render a paragraph for each region */}
+            {regions.map((region) => (
+              <p
+                key={region}
+                id={
+                  determineChosenRegion(props.region, region)
+                    ? "chosen-country"
+                    : "normal-country"
+                }
+                className={region}
+                onClick={() => handleRegionClick(region)}
+              >
+                {region.charAt(0).toUpperCase() + region.slice(1)}
+              </p>
+            ))}
           </div>
         </div>
       )}
@@ -104,4 +80,5 @@ function Region(props: RegionProps) {
   );
 }
 
+// Exporting the Region component
 export default Region;
