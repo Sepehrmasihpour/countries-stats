@@ -14,6 +14,7 @@ function Middle(props: MiddleProps) {
       {props.data.map((countryData) => (
         <Country
           key={countryData.name}
+          flag={countryData.flags.svg}
           name={countryData.name}
           capital={countryData.capital}
           population={countryData.population}

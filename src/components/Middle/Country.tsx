@@ -11,6 +11,7 @@ interface CountryProps {
   currencies: [];
   languages: [];
   borderCountries: string[];
+  flag: string;
 }
 
 function Country(props: CountryProps) {
