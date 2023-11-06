@@ -48,6 +48,7 @@ function App() {
           data={renderedData}
           updateChosenCountry={updateChosenCountry}
           chosenCountry={chosenCountry}
+          userIsChoosing={userIsChoosing}
         />
       </div>
     </div>

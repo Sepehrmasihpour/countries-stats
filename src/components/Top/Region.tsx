@@ -9,7 +9,7 @@ interface RegionProps {
 }
 
 function Region(props: RegionProps) {
-  const [showRegions, setShowRegions] = useState(true);
+  const [showRegions, setShowRegions] = useState(false);
 
   const detirmineChosenRegion = (
     chosenRegion: string | null,
