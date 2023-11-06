@@ -15,7 +15,11 @@ interface CountryProps {
 }
 
 function Country(props: CountryProps) {
-  return <div className="country" id={props.name}></div>;
+  return (
+    <div className="country" id={props.name}>
+      <img src={props.flag} alt="" />
+    </div>
+  );
 }
 
 export default Country;
