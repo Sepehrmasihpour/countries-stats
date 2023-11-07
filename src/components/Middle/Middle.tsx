@@ -6,6 +6,7 @@ interface MiddleProps {
   data: any[];
   chosenCountry: any | null;
   userIsChoosing: boolean;
+  darkMode: boolean;
 }
 
 function Middle(props: MiddleProps) {
@@ -28,7 +29,7 @@ function Middle(props: MiddleProps) {
   return (
     <>
       {props.userIsChoosing ? (
-        <div className="Middle">
+        <div className={props.darkMode ? "dark-Middle" : "Middle"}>
           {props.data.map((countryData) => (
             <Country
               key={countryData.name}

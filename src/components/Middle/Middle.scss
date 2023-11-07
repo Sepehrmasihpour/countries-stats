@@ -1,0 +1,33 @@
+// imorting the general sccs file for the global modules and variables
+@use "../styles/general.scss";
+
+.Middle {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 60px;
+  row-gap: 60px;
+  .country {
+    @include general.elements-shadow;
+    background-color: general.$light-mode-elements;
+    color: general.$light-mode-text;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    cursor: pointer;
+    img {
+      width: 100%;
+      box-shadow: 0 3px 4px rgba($color: #000000, $alpha: 0.1);
+    }
+    .preview {
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+.dark-Middle {
+  @extend .Middle;
+  .country {
+    background-color: general.$dark-mode-elements;
+    color: general.$dark-mode-text;
+  }
+}

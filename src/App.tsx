@@ -49,6 +49,7 @@ function App() {
           updateChosenCountry={updateChosenCountry}
           chosenCountry={chosenCountry}
           userIsChoosing={userIsChoosing}
+          darkMode={darkMode}
         />
       </div>
     </div>
