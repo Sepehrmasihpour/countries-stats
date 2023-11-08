@@ -12,13 +12,14 @@ header {
   justify-content: center;
   box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3);
   background-color: general.$light-mode-elements;
+  z-index: 200;
 }
 #dark-header {
   @extend header;
   background-color: general.$dark-mode-elements;
   .dark-mode-toggle {
     img {
-      @include general.white-image
+      @include general.white-image;
     }
   }
 }

@@ -30,7 +30,7 @@ function Country(props: CountryProps) {
               population: props.population,
               region: props.region,
               subregion: props.subRegion,
-              flags: { svg: props.flag },
+              flags: { png: props.flag },
               topLevelDomain: props.topLevelDomain,
               nativeName: props.nativeName,
               currencies: props.currencies,
@@ -41,16 +41,16 @@ function Country(props: CountryProps) {
         >
           <img src={props.flag} alt="" />
           <div className="preview">
-            <h4>{props.name}</h4>
+            <h3>{props.name}</h3>
             <div className="details">
               <p>
-                Population:<span>{props.population}</span>
+                Population: <span>{props.population}</span>
               </p>
               <p>
-                Region:<span>{props.region}</span>
+                Region: <span>{props.region}</span>
               </p>
               <p>
-                Capital:<span>{props.capital}</span>
+                Capital: <span>{props.capital}</span>
               </p>
             </div>
           </div>

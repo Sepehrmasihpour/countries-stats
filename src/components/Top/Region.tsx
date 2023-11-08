@@ -1,16 +1,11 @@
-// Importing necessary hooks from React
 import { useState, useCallback } from "react";
-
-// Importing an arrow image for the region dropdown
 import arrow from "./assets/chevron-down-outline.svg";
-
-// Importing the stylesheet for the component
 import "./Top.scss";
 
 // Defining the props for the Region component
 interface RegionProps {
   region: string | null; // The currently selected region
-  changeRegion: (region: string) => void; // Function to change the selected region
+  changeRegion: (region: string | null) => void; // Function to change the selected region
   darkMode: boolean; // Flag to indicate whether dark mode is enabled
 }
 
@@ -20,7 +15,7 @@ function Region(props: RegionProps) {
   const [showRegions, setShowRegions] = useState(false);
 
   // Array of regions
-  const regions = ["america", "africa", "asia", "europe", "ocenia"];
+  const regions = ["all", "america", "africa", "asia", "europe", "oceania"];
 
   // Function to determine if a region is the currently chosen one
   const determineChosenRegion = (
@@ -33,7 +28,11 @@ function Region(props: RegionProps) {
   // Function to handle region click events
   const handleRegionClick = useCallback(
     (region: string) => {
-      props.changeRegion(region);
+      if (region === "all") {
+        props.changeRegion("");
+      } else {
+        props.changeRegion(region);
+      }
     },
     [props.changeRegion]
   );
@@ -80,5 +79,4 @@ function Region(props: RegionProps) {
   );
 }
 
-// Exporting the Region component
 export default Region;

@@ -11,7 +11,7 @@ interface MiddleProps {
 
 function Middle(props: MiddleProps) {
   const getCountryProps = (countryData: any) => ({
-    flag: countryData.flags.svg,
+    flag: countryData.flags.png,
     name: countryData.name,
     capital: countryData.capital,
     population: countryData.population,
