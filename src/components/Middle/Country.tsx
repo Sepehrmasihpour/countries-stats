@@ -39,7 +39,7 @@ function Country(props: CountryProps) {
             })
           }
         >
-          <img src={props.flag} alt="" />
+          <img src={props.flag} alt="flag" />
           <div className="preview">
             <h3>{props.name}</h3>
             <div className="details">
@@ -56,7 +56,35 @@ function Country(props: CountryProps) {
           </div>
         </div>
       ) : (
-        <div className="country"> id={props.name}</div>
+        // ! Pay attention bbellow
+        // TODO For this part remember to add the top level domain , currencies , and languages segment ,
+        // TODO Find out whats the problem and why I can't render them noe
+        <div className="country" id="chosen-country">
+          <img src={props.flag} alt="flag" />
+          <div className="details">
+            <h1>{props.name}</h1>
+            <div className="stats">
+              <p>
+                Native Name: <span>{props.nativeName}</span>
+              </p>
+              <p>
+                Population: <span>{props.population}</span>
+              </p>
+              <p>
+                Region: <span>{props.region}</span>
+              </p>
+              <p>
+                Sub Region: <span>{props.subRegion}</span>
+              </p>
+              <p>
+                Capital: <span>{props.capital}</span>
+              </p>
+            </div>
+            <div className="border-countries">
+              <p>Border Countries:</p>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );

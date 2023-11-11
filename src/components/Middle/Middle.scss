@@ -1,3 +1,6 @@
+// ! Important
+// TODO: Make the component responsive
+
 // imorting the general sccs file for the global modules and variables
 @use "../styles/general.scss";
 
@@ -53,10 +56,44 @@
     transform: translateY(-5px);
   }
 }
+
 .dark-Middle {
   @extend .Middle;
   .country {
     background-color: general.$dark-mode-elements;
     color: general.$dark-mode-text;
+  }
+}
+
+#chosen-country {
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  align-items: center;
+  img {
+    @include general.elements-shadow;
+    flex: 1;
+  }
+  .details {
+    flex: 1;
+    display: flex;
+    row-gap: 30px;
+    flex-direction: column;
+    padding: 0 150px;
+    h1 {
+      margin: 0;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 15px;
+      p {
+        margin: 0;
+        font-weight: 600;
+        span {
+          font-weight: 300;
+        }
+      }
+    }
   }
 }
