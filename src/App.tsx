@@ -1,26 +1,58 @@
-import { useState } from "react";
+// Importing dependencies
+import Data from "./assets/data/data.json";
+import { useState, useMemo } from "react";
+import useFilterData from "./hooks/useFilterData";
 import Header from "./components/Header";
+import Top from "./components/Top/Top";
+import Middle from "./components/Middle/Middle";
+import "./components/styles/App.scss";
 import "@fontsource-variable/nunito-sans";
-import "./App.scss";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [searchValue, setSearch] = useState<string>("");
+  const [chosenCountry, setChosenCountry] = useState<null | {}>(null);
+  const [region, setRegion] = useState<string>("");
 
-  const darkModeToggle = () => {
-    setDarkMode((prevState) => !prevState);
-  };
+  // the data that will be rendered and cpassed to the components
+  const renderedData = useFilterData(Data, chosenCountry, region, searchValue);
+  const userIsChoosing = useMemo(() => {
+    if (chosenCountry !== null) {
+      return false;
+    } else {
+      return true;
+    }
+  }, [chosenCountry]);
 
-  // Store the "container" class name in a constant to avoid creating a new string on each render
-  const containerClassName = darkMode ? "dark-container" : "container";
+  // Handlers for various state updates
+  const darkModeToggle = () => setDarkMode(!darkMode);
+  const updateSearch = (value: string) => setSearch(value);
+  const updateRegion = (region: string) => setRegion(region);
+  const updateChosenCountry = (chosenCountry: null | {}) =>
+    setChosenCountry(chosenCountry);
 
   return (
-    <>
-      {/* Use the constant for the class name */}
-      <div className={containerClassName}>
-        {/* Pass the darkMode and darkModeToggle functions directly to the Header component */}
+    <div className={darkMode ? "dark-app" : "app"}>
+      <div className="container">
         <Header darkMode={darkMode} darkModeToggle={darkModeToggle} />
+        <Top
+          darkMode={darkMode}
+          backToggle={updateChosenCountry}
+          updateSearch={updateSearch}
+          changeRegion={updateRegion}
+          searchValue={searchValue}
+          userIsChoosing={userIsChoosing}
+          region={region}
+        />
+        <Middle
+          data={renderedData}
+          updateChosenCountry={updateChosenCountry}
+          chosenCountry={chosenCountry}
+          userIsChoosing={userIsChoosing}
+          darkMode={darkMode}
+        />
       </div>
-    </>
+    </div>
   );
 }
 

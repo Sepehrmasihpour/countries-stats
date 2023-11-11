@@ -1,0 +1,54 @@
+@use "general";
+
+header {
+  height: 70px;
+  padding: 0 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.3);
+  background-color: general.$light-mode-elements;
+  z-index: 200;
+}
+#dark-header {
+  @extend header;
+  background-color: general.$dark-mode-elements;
+  .dark-mode-toggle {
+    img {
+      @include general.white-image;
+    }
+  }
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    width: 20px;
+  }
+  #logo {
+    font-weight: 800;
+    font-size: 30px;
+  }
+}
+.dark-mode-toggle {
+  display: flex;
+  column-gap: 7px;
+  align-items: center;
+  img {
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  #logo {
+    font-size: 20px;
+  }
+}
