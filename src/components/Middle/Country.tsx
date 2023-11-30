@@ -44,7 +44,7 @@ function Country(props: CountryProps) {
             <h3>{props.name}</h3>
             <div className="details">
               <p>
-                Population: <span>{props.population}</span>
+                Population: <span>{props.population.toLocaleString()}</span>
               </p>
               <p>
                 Region: <span>{props.region}</span>
@@ -68,7 +68,7 @@ function Country(props: CountryProps) {
                 Native Name: <span>{props.nativeName}</span>
               </p>
               <p>
-                Population: <span>{props.population}</span>
+                Population: <span>{props.population.toLocaleString()}</span>
               </p>
               <p>
                 Region: <span>{props.region}</span>
