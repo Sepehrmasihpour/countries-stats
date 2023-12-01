@@ -36,6 +36,7 @@ function Middle(props: MiddleProps) {
               {...getCountryProps(countryData)}
               updateChosenCountry={props.updateChosenCountry}
               userIsChoosing={props.userIsChoosing}
+              darkMode={props.darkMode}
             />
           ))}
         </div>

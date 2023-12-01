@@ -97,6 +97,15 @@
         }
       }
     }
+    .border-countries {
+      span {
+        @include general.elements-shadow;
+        padding: 3px 30px;
+        background-color: general.$light-mode-elements;
+        font-size: 13px;
+        font-weight: 300;
+      }
+    }
   }
 }
 
