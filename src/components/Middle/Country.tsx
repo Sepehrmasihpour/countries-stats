@@ -64,9 +64,6 @@ function Country(props: CountryProps) {
           </div>
         </div>
       ) : (
-        // ! Pay attention bbellow
-        // TODO For this part remember to add the top level domain , currencies , and languages segment ,
-        // TODO Find out whats the problem and why I can't render them noe
         <div className="country" id="chosen-country">
           <img src={props.flag} alt="flag" />
           <div className="details">

@@ -1,3 +1,10 @@
+// TODO make alpha3Code state in App.tsx
+// TODO meke the function that will change the value of thee alpha3Code state
+// TODO pass that func to the Middle component
+// TODO use the useMemo so that the will change thee chosenCountry state with the country data that has the same alpha3Code
+// _ as the alpha3Code state . thee useMeemo dpeends on the alpha3Code state and wheneever the the function finishes it will change the alpha3Code state to
+// _ "" and the eentire logic of the fuction is insid an if statement that checks if the alpha3Code state is not equal to ""
+
 // Importing dependencies
 import Data from "./assets/data/data.json";
 import { useState, useMemo } from "react";

@@ -1,3 +1,4 @@
+// TODO pass the setAlpha3Codee to the Country component
 import Country from "./Country";
 import "./Middle.scss";
 
