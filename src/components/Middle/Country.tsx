@@ -25,33 +25,6 @@ interface language {
 }
 
 function Country(props: CountryProps) {
-  type AnyObject = {
-    [key: string]: any;
-  };
-
-  function getNames(obj: AnyObject): string[] {
-    let names: string[] = [];
-    for (let key in obj) {
-      if (typeof obj[key] === "object" && obj[key] !== null) {
-        names = names.concat(getNames(obj[key] as AnyObject));
-      } else if (key === "name") {
-        names.push(obj[key] as string);
-      }
-      const currencies = (obj) => {
-        let names: [] = [];
-        for (let key in obj) {
-          if (typeof obj[key] === "object" && obj[key] !== null) {
-            names = names.concat(currencies(obj[key]));
-          } else if (key === "name") {
-            names.push(obj[key]);
-          }
-        }
-        return names;
-      };
-    }
-    return names;
-  }
-
   return (
     <>
       {props.userIsChoosing ? (
@@ -68,8 +41,8 @@ function Country(props: CountryProps) {
               flags: { png: props.flag },
               topLevelDomain: props.topLevelDomain,
               nativeName: props.nativeName,
-              currencies: getNames(props.currencies),
-              languages: getNames(props.languages),
+              currencies: props.currencies,
+              languages: props.languages,
               borders: props.borderCountries,
             })
           }
