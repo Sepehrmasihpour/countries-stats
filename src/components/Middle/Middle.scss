@@ -98,12 +98,49 @@
       }
     }
     .border-countries {
-      span {
-        @include general.elements-shadow;
-        padding: 3px 30px;
-        background-color: general.$light-mode-elements;
-        font-size: 13px;
-        font-weight: 300;
+      display: flex;
+      align-items: first baseline;
+      p {
+        min-width: 150px;
+        font-weight: 600;
+      }
+      .border-countries-names {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 5px;
+        row-gap: 5px;
+        span {
+          @include general.elements-shadow;
+          flex: 1;
+          max-width: 30px;
+          padding: 3px 30px;
+          border-radius: 5px;
+          background-color: general.$light-mode-elements;
+          font-size: 13px;
+          font-weight: 300;
+          cursor: pointer;
+        }
+
+        span:hover {
+          background-color: darken(general.$light-mode-elements, 10%);
+        }
+
+        span:active {
+          transform: translateX(2px);
+          transition: transform 70ms ease-in-out;
+        }
+      }
+    }
+    .dark-border-countries {
+      @extend .border-countries;
+      .border-countries-names {
+        span {
+          color: general.$dark-mode-text;
+          background-color: general.$dark-mode-elements;
+        }
+        span:hover {
+          background-color: darken(general.$dark-mode-elements, 10%);
+        }
       }
     }
   }

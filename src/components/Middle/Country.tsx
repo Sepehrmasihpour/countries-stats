@@ -17,6 +17,13 @@ interface CountryProps {
   darkMode: boolean;
 }
 
+interface currency {
+  name: string;
+}
+interface language {
+  name: string;
+}
+
 function Country(props: CountryProps) {
   type AnyObject = {
     [key: string]: any;
@@ -91,6 +98,7 @@ function Country(props: CountryProps) {
           <img src={props.flag} alt="flag" />
           <div className="details">
             <h1>{props.name}</h1>
+
             <div className="stats">
               <p>
                 Native Name: <span>{props.nativeName}</span>
@@ -107,40 +115,50 @@ function Country(props: CountryProps) {
               <p>
                 Capital: <span>{props.capital}</span>
               </p>
-
               <p>
-                Top level domain:
-                <span>
-                  {props.topLevelDomain.map((item: string, index) => (
-                    <span key={index}> {item.slice(1)}</span>
-                  ))}
-                </span>
+                Top Level Domain:{" "}
+                {props.topLevelDomain.map((item: string, index) => (
+                  <span key={index}>
+                    {item.substring(1)}
+                    {index !== props.topLevelDomain.length - 1 ? ", " : ""}
+                  </span>
+                ))}
               </p>
-
               <p>
-                Currencies:{" "}
-                <span>
-                  {props.currencies.map((item: string, index) => (
-                    <span key={index}>{item}</span>
-                  ))}
-                </span>
+                currencies:{" "}
+                {props.currencies.map((item: currency, index) => (
+                  <span key={index}>
+                    {item.name}
+                    {index !== props.currencies.length - 1 ? ", " : ""}
+                  </span>
+                ))}
               </p>
               <p>
                 Languages:{" "}
-                <span>
-                  {props.languages.map((item: string, index) => (
-                    <span key={index}>{item}</span>
-                  ))}
-                </span>
-              </p>
-            </div>
-            <div className="border-countries">
-              <p>
-                Border Countries:{" "}
-                {props.borderCountries.map((item: string, index) => (
-                  <span key={index}>{item}</span>
+                {props.languages.map((item: language, index) => (
+                  <span key={index}>
+                    {item.name}
+                    {index !== props.languages.length - 1 ? ", " : ""}
+                  </span>
                 ))}
               </p>
+            </div>
+
+            <div
+              className={
+                props.darkMode ? "dark-border-countries" : "border-countries"
+              }
+            >
+              <p>Border Countries:</p>
+              <div className="border-countries-names">
+                {props.borderCountries.length === 0 ? (
+                  <span id="no-borders">None</span>
+                ) : (
+                  props.borderCountries.map((item: string, index) => (
+                    <span key={index}>{item}</span>
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>

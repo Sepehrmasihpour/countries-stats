@@ -7,6 +7,7 @@ interface MiddleProps {
   chosenCountry: any | null;
   userIsChoosing: boolean;
   darkMode: boolean;
+  updateAlpha3Code: (alpha3Code: string) => void;
 }
 
 function Middle(props: MiddleProps) {
@@ -23,7 +24,7 @@ function Middle(props: MiddleProps) {
     subRegion: countryData.subregion,
     currencies: countryData.currencies,
     languages: countryData.languages,
-    borderCountries: countryData.borders,
+    borderCountries: countryData.borders || [],
   });
 
   return (
@@ -44,6 +45,7 @@ function Middle(props: MiddleProps) {
         <Country
           {...getCountryProps(props.chosenCountry)}
           userIsChoosing={props.userIsChoosing}
+          darkMode={props.darkMode}
         />
       )}
     </>
