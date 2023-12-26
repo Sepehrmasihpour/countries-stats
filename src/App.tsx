@@ -20,8 +20,8 @@ function App() {
   const [searchValue, setSearch] = useState<string>("");
   const [chosenCountry, setChosenCountry] = useState<null | {}>(null);
   const [region, setRegion] = useState<string>("");
+  const [alpha3Code, setAlpha3Code] = useState<string>("");
 
-  // the data that will be rendered and cpassed to the components
   const renderedData = useFilterData(Data, chosenCountry, region, searchValue);
   const userIsChoosing = useMemo(() => {
     if (chosenCountry !== null) {
@@ -31,10 +31,22 @@ function App() {
     }
   }, [chosenCountry]);
 
+  useMemo(() => {
+    if (alpha3Code !== "" && alpha3Code !== "none") {
+      const country = Data.filter((country) => {
+        return country.alpha3Code === alpha3Code;
+      });
+      setChosenCountry(country[0]);
+      setAlpha3Code("");
+      console.log(alpha3Code);
+    }
+  }, [alpha3Code]);
+
   // Handlers for various state updates
   const darkModeToggle = () => setDarkMode(!darkMode);
   const updateSearch = (value: string) => setSearch(value);
   const updateRegion = (region: string) => setRegion(region);
+  const updateAlpha3Code = (alpha3Code: string) => setAlpha3Code(alpha3Code);
   const updateChosenCountry = (chosenCountry: null | {}) =>
     setChosenCountry(chosenCountry);
 
@@ -57,6 +69,7 @@ function App() {
           chosenCountry={chosenCountry}
           userIsChoosing={userIsChoosing}
           darkMode={darkMode}
+          updateAlpha3Code={updateAlpha3Code}
         />
       </div>
     </div>

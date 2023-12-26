@@ -1,7 +1,9 @@
+// TODO make the app responsive
 import "./Middle.scss";
 
 interface CountryProps {
   updateChosenCountry?: (chosenCountry: {}) => void;
+  updateAlpha3Code?: (alpha3Code: string) => void;
   name: string;
   population: number;
   region: string;
@@ -125,7 +127,14 @@ function Country(props: CountryProps) {
                   <span id="no-borders">None</span>
                 ) : (
                   props.borderCountries.map((item: string, index) => (
-                    <span key={index}>{item}</span>
+                    <span
+                      onClick={() =>
+                        props.updateAlpha3Code && props.updateAlpha3Code(item)
+                      }
+                      key={index}
+                    >
+                      {item}
+                    </span>
                   ))
                 )}
               </div>

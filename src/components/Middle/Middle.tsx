@@ -1,4 +1,4 @@
-// TODO pass the setAlpha3Codee to the Country component
+// TODO meke the middle component reespnsive
 import Country from "./Country";
 import "./Middle.scss";
 
@@ -47,6 +47,7 @@ function Middle(props: MiddleProps) {
           {...getCountryProps(props.chosenCountry)}
           userIsChoosing={props.userIsChoosing}
           darkMode={props.darkMode}
+          updateAlpha3Code={props.updateAlpha3Code}
         />
       )}
     </>
