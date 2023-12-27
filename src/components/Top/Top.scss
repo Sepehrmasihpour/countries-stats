@@ -17,8 +17,12 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
-}
 
+  @media (max-width: 700px) {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+}
 // * The styles for Back component
 
 .back-button {
