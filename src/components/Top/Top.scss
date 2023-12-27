@@ -1,9 +1,4 @@
-// ! Important
-// TODO: Make the component responsive
-
 @use "../styles/general.scss";
-
-// TODO make this component responsive . by flex display and stacking the search and region component on top of each other
 
 // * General styles for the Top component
 
@@ -62,22 +57,27 @@
   color: general.$light-mode-input;
   background-color: general.$light-mode-elements;
   display: flex;
-  border-radius: 6px;
+  border-radius: 5%;
   .img-container {
     background-color: general.$light-mode-elements;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 50px;
+
     img {
       margin-right: 10px;
+      margin-left: 5px;
     }
   }
   input {
     background-color: general.$light-mode-elements;
     border: none;
     height: 45px;
-    width: 350px;
+    width: 100%;
+    min-width: 350px;
+    @media (max-width: 700px) {
+      min-width: 260px;
+    }
   }
   input:focus {
     outline: none;
